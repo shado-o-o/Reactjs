@@ -1,0 +1,173 @@
+
+export default function Form() {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+
+  const fullName = firstName + ' ' + lastName;
+
+  function handleFirstNameChange(e) {
+    setFirstName(e.target.value);
+  }
+
+  function handleLastNameChange(e) {
+    setLastName(e.target.value);
+  }
+
+  return (
+    <>
+      <h2>Let’s check you in</h2>
+      <label>
+        First name:{' '}
+        <input
+          value={firstName}
+          onChange={handleFirstNameChange}
+        />
+      </label>
+      <label>
+        Last name:{' '}
+        <input
+          value={lastName}
+          onChange={handleLastNameChange}
+        />
+      </label>
+      <p>
+        Your ticket will be issued to: <b>{fullName}</b>
+      </p>
+    </>
+  );
+}
+
+/////////////////////////////////////////////////////////
+// this function with react js to increase value of num (1) during 
+click on button 
+
+Main extends Component {
+    constructor(){
+        super()
+        this.state={
+            num:0
+        }
+        this.event = this.event.bind(this);
+    }
+    event(){
+       this.setState(function(pre){
+         return {
+             num: pre.num +1
+            }
+       })
+        
+    }
+        
+    
+     render(){
+        return (
+          <div>
+            <h1>{this.state.num}</h1>
+            <button onClick={this.event} className='btn btn-danger'> click</button>
+          </div>
+        )
+     }
+}
+
+///////////////////////////////////////////////////
+
+class Main extends Component {
+    constructor(){
+        super()
+        this.state={
+            mydata:data
+        }  
+    }
+     render(){
+       
+        return (
+          <div>
+            <img src={photo} alt={data.user.name}></img>
+            <h1>{data.user.name}</h1>
+            <h1>{data.user.id}</h1>
+           </div>
+        )
+     }
+}
+
+//////////////////////////////////////////////////////
+
+function Test() {
+     const [count,setcount]=useState(0);
+    function up(){
+         setcount(count +1)
+    }
+     function dwon()  {
+         setcount(count -1)
+    }
+   
+
+  return (
+    <div className='test'>
+       <h1>{count}</h1>
+      <button className='btn btn-danger' type="button" onClick={up}>up</button>
+      <button className='btn btn-primary' type="button" onClick={dwon}>dowin</button>
+    </div>
+  )
+}
+
+////////////////////////////////////////////////////////
+function Test() {
+   const data= [
+    {id:1,name:'shady',pass:"123456"},
+    {id:2,name:'mohammed',pass:"465489"},
+    {id:3,name:'ali',pass:"841523"},
+    {id:4,name:'al-said',pass:"385916"},
+    {id:5,name:'ibrahem',pass:"659843"}];
+
+  const num=()=>{
+    const grat= data.map((item,index)=>(
+      <div> 
+        <img className='img' src={photo} alt={item.name} />
+        <li key={index}>
+       {item.id} : {item.name}
+       </li>
+       <li key={index}>
+       {item.pass}
+       </li>
+     </div>
+    
+     ));
+      return grat;
+  }
+  let hh=num();
+
+  return (
+    <div className='test'>
+      <ul>
+        {hh}
+      </ul>
+        
+    </div>
+      
+  )
+}
+
+////////////////////////////////////////////////////
+ 
+function Test() {
+   const input=useRef();
+   const output=useRef();
+   const alt=()=>{
+     output.current.innerHTML=input.current.value;
+   }
+   const ddd=()=>{
+    output.current.innerHTML=input.current.value;
+   }
+
+  return (
+    <div className='test'>
+      <h1 ref={output}>red</h1>
+       <input ref={input} onChange={ddd} type="text" />
+       <button onClick={alt} className='btn btn-danger'>Done</button>
+        
+    </div>
+      
+  )
+}
+/////////////////////////////////////////////////////
